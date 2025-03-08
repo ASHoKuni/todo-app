@@ -24,5 +24,7 @@ A simple **To-Do List application** built using **Next.js, TypeScript, and Tailw
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/nextjs-todo-list.git
-cd nextjs-todo-list
+git clone https://github.com/ASHoKuni/todo-app.git
+cd todo-app/
+npm install
+npm run dev
