@@ -15,11 +15,8 @@ A simple **To-Do List application** built using **Next.js, TypeScript, and Tailw
 - **Language**: TypeScript  
 - **Styling**: Tailwind CSS  
 - **State Management**: React Hooks (`useState`, `useEffect`)  
-- **API**: [DummyJSON To-Do API](https://dummyjson.com/docs/todos#todos-a)  
-
-## 📸 Screenshot
-![Todo App Screenshot](https://via.placeholder.com/800x400?text=Todo+App+Screenshot)  
-
+- **API**: [DummyJSON To-Do API](https://dummyjson.com/docs/todos#todos-a)
+  
 ## 🛠️ Installation
 
 ### 1️⃣ Clone the Repository
