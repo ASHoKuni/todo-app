@@ -1,0 +1,45 @@
+# MongoDB Aggregation Consider a MongoDB collection named sales with documents
+# structured as follows:
+# #############################################################################
+db.sales.aggregate([
+    {
+        Format the date to the "YYYY-MM" format for grouping by month
+        $project: {
+            store: 1,
+            month: { $dateToString: { format: "%Y-%m", date: "$date" } },
+            items: 1
+        }
+    },
+    {
+        // Unwind the items array to deal with individual items
+        $unwind: "$items"
+    },
+    {
+        // Calculate the revenue for each item
+        $addFields: {
+            revenue: { $multiply: ["$items.quantity", "$items.price"] }
+        }
+    },
+    {
+        // Group by store and month, summing total revenue and averaging price
+        $group: {
+            _id: { store: "$store", month: "$month" },
+            totalRevenue: { $sum: "$revenue" },
+            averagePrice: { $avg: "$items.price" }
+        }
+    },
+    {
+        // Sort by store and then by month
+        $sort: { "_id.store": 1, "_id.month": 1 }
+    },
+    {
+        // Format the final output to match the desired structure
+        $project: {
+            store: "$_id.store",
+            month: "$_id.month",
+            totalRevenue: 1,
+            averagePrice: 1,
+            _id: 0
+        }
+    }
+]);
